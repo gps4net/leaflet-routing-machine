@@ -2,7 +2,7 @@
    NOTICE
    Since version 3.2.5, the functionality in this file is by
    default NOT used for localizing OSRM instructions.
-   Instead, we rely pe the module osrm-text-instructions (https://github.com/Project-OSRM/osrm-text-instructions/).
+   Instead, we rely on the module osrm-text-instructions (https://github.com/Project-OSRM/osrm-text-instructions/).
    
    This file can still be used for other routing backends, or if you specify the
    stepToText option in the OSRMv1 class.
@@ -126,7 +126,7 @@
 			instructions: {
 				// instruction, postfix if the road is named
 				'Head':
-					['Head {dir}', ' pe {road}'],
+					['Head {dir}', ' on {road}'],
 				'Continue':
 					['Continue {dir}'],
 				'TurnAround':
@@ -139,8 +139,8 @@
 					['Destination reached'],
 				'Fork': ['At the fork, turn {modifier}', ' onto {road}'],
 				'Merge': ['Merge {modifier}', ' onto {road}'],
-				'OnRamp': ['Turn {modifier} pe the ramp', ' onto {road}'],
-				'OffRamp': ['Take the ramp pe the {modifier}', ' onto {road}'],
+				'OnRamp': ['Turn {modifier} on the ramp', ' onto {road}'],
+				'OffRamp': ['Take the ramp on the {modifier}', ' onto {road}'],
 				'EndOfRoad': ['Turn {modifier} at the end of the road', ' onto {road}'],
 				'Onto': 'onto {road}'
 			},
