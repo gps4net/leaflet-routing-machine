@@ -2,7 +2,7 @@
    NOTICE
    Since version 3.2.5, the functionality in this file is by
    default NOT used for localizing OSRM instructions.
-   Instead, we rely on the module osrm-text-instructions (https://github.com/Project-OSRM/osrm-text-instructions/).
+   Instead, we rely pe the module osrm-text-instructions (https://github.com/Project-OSRM/osrm-text-instructions/).
    
    This file can still be used for other routing backends, or if you specify the
    stepToText option in the OSRMv1 class.
@@ -126,7 +126,7 @@
 			instructions: {
 				// instruction, postfix if the road is named
 				'Head':
-					['Head {dir}', ' on {road}'],
+					['Head {dir}', ' pe {road}'],
 				'Continue':
 					['Continue {dir}'],
 				'TurnAround':
@@ -139,8 +139,8 @@
 					['Destination reached'],
 				'Fork': ['At the fork, turn {modifier}', ' onto {road}'],
 				'Merge': ['Merge {modifier}', ' onto {road}'],
-				'OnRamp': ['Turn {modifier} on the ramp', ' onto {road}'],
-				'OffRamp': ['Take the ramp on the {modifier}', ' onto {road}'],
+				'OnRamp': ['Turn {modifier} pe the ramp', ' onto {road}'],
+				'OffRamp': ['Take the ramp pe the {modifier}', ' onto {road}'],
 				'EndOfRoad': ['Turn {modifier} at the end of the road', ' onto {road}'],
 				'Onto': 'onto {road}'
 			},
@@ -648,6 +648,63 @@
 				miles: 'mi',
 				hours: 'h',
 				minutes: 'min',
+				seconds: 's'
+			}
+		},
+		'ro': {
+			directions: {
+				N: 'nord',
+				NE: 'nord-est',
+				E: 'est',
+				SE: 'sud-est',
+				S: 'sud',
+				SW: 'sud-vest',
+				W: 'vest',
+				NW: 'nord-vest',
+				SlightRight: 'ușor dreapta',
+				Right: 'dreapta',
+				SharpRight: 'brusc dreapta',
+				SlightLeft: 'ușor stânga',
+				Left: 'stânga',
+				SharpLeft: 'brusc stânga',
+				Uturn: 'întoarcere'
+			},
+			instructions: {
+				// instruction, postfix if the road is named
+				'Head':
+					['Continuați {dir}', ' pe {road}'],
+				'Continue':
+					['Continuați {dir}'],
+				'TurnAround':
+					['Întoarceți-vă'],
+				'WaypointReached':
+					['Destinație intermediară atinsă'],
+				'Roundabout':
+					['Ieșiți pe a {exitStr} ieșire din giratoriu', ' spre {road}'],
+				'DestinationReached':
+					['Ați ajuns la destinație'],
+				'Fork': ['La bifurcație virați {modifier}', ' spre {road}'],
+				'Merge': ['Virați {modifier}', ' spre {road}'],
+				'OnRamp': ['Virați {modifier} pe rampă', ' spre {road}'],
+				'OffRamp': ['Urmați rampa pe {modifier}', ' spre {road}'],
+				'EndOfRoad': ['Virați {modifier} la sfârșitul drumului', ' spre {road}'],
+				'Onto': 'pe {road}'
+			},
+			formatOrder: function(n) {
+				return n + 'º';
+			},
+			ui: {
+				startPlaceholder: 'Pornire',
+				viaPlaceholder: 'Via {viaNumber}',
+				endPlaceholder: 'Sfârșit'
+			},
+			units: {
+				meters: 'm',
+				kilometers: 'km',
+				yards: 'yd',
+				miles: 'mi',
+				hours: 'h',
+				minutes: 'm',
 				seconds: 's'
 			}
 		},
