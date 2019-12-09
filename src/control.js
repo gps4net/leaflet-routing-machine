@@ -39,10 +39,6 @@
 			if (options.routeWhileDragging) {
 				this._setupRouteDragging();
 			}
-
-			if (this.options.autoRoute) {
-				this.route();
-			}
 		},
 
 		_onZoomEnd: function() {
@@ -72,6 +68,10 @@
 		},
 
 		onAdd: function(map) {
+			if (this.options.autoRoute) {
+				this.route();
+			}
+
 			var container = Itinerary.prototype.onAdd.call(this, map);
 
 			this._map = map;
@@ -220,7 +220,9 @@
 
 		_hookEvents: function(l) {
 			l.on('linetouched', function(e) {
-				this._plan.dragNewWaypoint(e);
+				if (e.afterIndex < this.getWaypoints().length - 1) {
+					this._plan.dragNewWaypoint(e);
+				}
 			}, this);
 		},
 
@@ -274,7 +276,10 @@
 			if (!err) {
 				routes = routes.slice();
 				var selected = routes.splice(this._selectedRoute.routesIndex, 1)[0];
-				this._updateLines({route: selected, alternatives: routes });
+				this._updateLines({
+					route: selected,
+					alternatives: this.options.showAlternatives ? routes : []
+				});
 			} else if (err.type !== 'abort') {
 				this._clearLines();
 			}
